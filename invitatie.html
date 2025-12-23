@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>La mulți ani 🎉</title>
+
+    <style>
+        body {
+            background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 30px;
+        }
+
+        .card {
+            background-color: #1c1c1c;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+        }
+
+        h1, h2 {
+            color: gold;
+        }
+
+        .countdown {
+            font-size: 22px;
+            margin: 20px 0;
+            color: #ffd700;
+        }
+
+        .photos {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .photos img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        button {
+            background-color: gold;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🎵 MUSIC -->
+    <audio id="music" loop>
+        <source src="invitation_music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="playMusic()">▶ Play Music</button>
+
+    <div class="card">
+        <h1>🎉 Birthday Invitation 🎉</h1>
+
+        <p>Bună iubire ❤️</p>
+        <p>Oficial ești invitat să îți sărbătorim</p>
+        <h2>✨ ZIUA TA DE NAȘTERE ✨</h2>
+
+        <!-- ⏳ COUNTDOWN -->
+        <div class="countdown" id="countdown"></div>
+
+        <p>
+            📅 Date: 31 December 2025<br>
+            🕒 Time: oricand ajungi<br>
+            📍 Location: La NOI 😉
+        </p>
+
+        <p>P.S. Surprize garantate, nu rata ocazia 🎁</p>
+
+        <!-- 📸 PHOTOS -->
+        <div class="photos">
+            <img src="1.jpg">
+            <img src="2.jpg">
+            <img src="3.jpg">
+        </div>
+
+        <p style="margin-top:20px;">
+            Te aștept,<br>
+            Domnita ta ❤️
+        </p>
+    </div>
+
+    <!-- ⏳ COUNTDOWN SCRIPT -->
+    <script>
+        function playMusic() {
+            document.getElementById("music").play();
+        }
+
+        const birthdayDate = new Date("December 31, 2025 00:00:00").getTime();
+
+        setInterval(function () {
+            const now = new Date().getTime();
+            const distance = birthdayDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                "⏳ " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+        }, 1000);
+    </script>
+
+</body>
+</html>
